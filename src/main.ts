@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { initApp } from '@/config/init'
+import { initApp, initGlobalComponents } from '@/config/init'
 
 import 'normalize.css/normalize.css'
 import './assets/fonts/iconfont.css'
@@ -11,6 +11,8 @@ import './assets/styles/global.scss'
     // 初始化系统配置信息
     // 1. 全局变量app， 语言包lpk，ajax，tools定义
     // 2. 异步加载基础模块配置信息
+    // = 1). 加载系统当前状态
+    // = 2). 加载登陆用户个人信息
     // 3. 异步加载业务模块，并完成初始化
     initApp()
 
@@ -18,6 +20,7 @@ import './assets/styles/global.scss'
     const uiApp = createApp(App)
 
     // 注册全局组件
+    initGlobalComponents(uiApp)
 
     // 向根组建绑定全局对象 
     uiApp.config.globalProperties.app = window.app
