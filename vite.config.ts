@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import autoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite';
+import { VantResolver } from 'unplugin-vue-components/resolvers';
 
 import autoprefixer from 'autoprefixer'
 import postCssPxToRem from 'postcss-pxtorem'
@@ -13,8 +15,12 @@ export default defineConfig({
     vue(),
     autoImport({
       imports: ['vue'],
-      dts: 'src/auto-import.d.ts'
-    })
+      dts: 'src/types/auto-import-vue.d.ts'
+    }),
+    Components({
+      resolvers: [VantResolver()],
+      dts: 'src/types/auto-import-components.d.ts'
+    }),
   ],
   resolve: {
     alias: {

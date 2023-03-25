@@ -2,6 +2,8 @@
   import Icon from '@/components/Icon'
   Tools.LocalStorage.setItem('test_001', 'testvalue')
   console.log(lpk('Index'))
+
+  let show: boolean = true
 </script>
 
 <template>
@@ -11,6 +13,8 @@
     {{ lpk('Index') }}
     {{ lpk('Type', {index: 1}) }}
     <Icon icon="icon-time"/>
+    <van-button type="primary">主要按钮</van-button>
+    <van-calendar v-model:show="show"/>
   </div>
 </template>
 
