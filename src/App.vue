@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  import Icon from '@/components/Icon'
   Tools.LocalStorage.setItem('test_001', 'testvalue')
-  console.log(lpk('Index'))
 
   let show: boolean = true
 </script>
@@ -30,10 +28,13 @@
     width: 30%;
     padding: 50px 0px;
     text-align: center;
+    font-size: var(--primary-size);
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
     // background: rgb(50, 200, 211);
-    @include fontSize('big-size');
-    @include bg();
-    @include color('menu-text-color');
+  //   @include fontSize('big-size');
+  //   @include bg();
+  //   @include color('menu-text-color');
   }
 }
 </style>

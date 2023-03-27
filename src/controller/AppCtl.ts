@@ -1,5 +1,6 @@
 import mdlUserApi, { IUser } from "@/api/UserApi"
 import { mergeLpk, changeLocale } from "@/config/lpk"
+import { changeTheme } from "@/config/theme"
 import { LOGIN_TOKEN } from "@/utils/Constants"
 
 let iLoginUser: IUser = {} as IUser
@@ -16,5 +17,6 @@ export default {
         return iLoginUser
     },
     changeLocale,
-    mergeLpk
+    mergeLpk,
+    changeTheme,
 }

@@ -3,10 +3,10 @@ import app from "./app";
 import Tools from "@/utils/Tools";
 import { lpk, initLpk } from "./lpk";
 import { initLoginUserInfo } from '@/controller/AppCtl' 
-import { includeBooleanAttr } from "@vue/shared";
+import { initTheme } from './theme'
 
 // 声明全局变量相关类型
-type IGlobalVarsKey = 'app' | 'lpk' | 'Tools' | 'Ajax' | 'sddd'
+type IGlobalVarsKey = 'app' | 'lpk' | 'Tools' | 'Ajax'
 type IGlobalVars = {
     [key in IGlobalVarsKey]?: any
 }
@@ -29,6 +29,7 @@ export const initApp = async () => {
     // 方法1. 针对不同的主题书写不同的样式文件，根据当前主题，到server端加载样式文件
     // 方法2. 通过SCSS变量和mixin实现主题定制
     // 方法3. 通过CSS变量实现主题定制
+    initTheme()
 
     // 初始化语言包
     initLpk()
