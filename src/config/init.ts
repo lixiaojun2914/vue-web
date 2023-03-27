@@ -24,6 +24,13 @@ Object.keys(iGlobalVars).forEach(stKey => {
 export const initApp = async () => {
     // 初始化基础业务相关信息
     await initLoginUserInfo()
+
+    // 初始化样式主题
+    // 方法1. 针对不同的主题书写不同的样式文件，根据当前主题，到server端加载样式文件
+    // 方法2. 通过SCSS变量和mixin实现主题定制
+    // 方法3. 通过CSS变量实现主题定制
+
+    // 初始化语言包
     initLpk()
 
     // ...
