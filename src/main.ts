@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { initApp, initGlobalComponents } from '@/config/init'
+import { initRouter } from './router'
 
 import './assets/styles/base-theme.scss'
 import './assets/styles/blue-theme.scss'
@@ -18,7 +19,7 @@ import './assets/styles/global.scss'
     // = 1). 加载系统当前状态
     // = 2). 加载登陆用户个人信息
     // 3. 异步加载业务模块，并完成初始化
-    initApp()
+    await initApp()
 
     // 初始化UI
     const uiApp = createApp(App)
@@ -32,6 +33,10 @@ import './assets/styles/global.scss'
     uiApp.config.globalProperties.lpk = window.lpk
     
     // 初始化状态管理与路由并渲染根组件
-
+    // 1. 初始化基础模块的路由配置
+    // 2. 初始化业务模块的路由配置
+    // 3. 对路由守卫进行处理
+    // 4. keep-alive的使用
+    uiApp.use(initRouter())
     uiApp.mount('#app')
 })()
