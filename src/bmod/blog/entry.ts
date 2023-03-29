@@ -1,4 +1,5 @@
 import sysCfg from "./config/sysCfg"
+import { initRoutes } from "./router"
 
 const stModuleName = sysCfg.module
 
@@ -16,6 +17,7 @@ export const entryInit = async () => {
     // 初始化当前模块状态管理信息
 
     // 初始化当前模块路由信息
+    initRoutes()
 }
 
 export default {}
